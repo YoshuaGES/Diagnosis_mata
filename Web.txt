@@ -3,4 +3,4 @@ Langkah-langkah membuat Websitenya
 2. Instal Bootstrap + buat Index
 3. Koneksi Database + buat tampilan Gejala + CRUD Gejala
 4. Buat Halaman Penyakit + CRUD Penyakit
-5. Halaman Rules Base
+5. Halaman Rules Base (Tampilan + Tambah data + simpan + update + hapus)

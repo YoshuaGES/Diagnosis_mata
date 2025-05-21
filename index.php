@@ -50,7 +50,7 @@
     </nav>
 
     <!-- ini buat menu -->
-    <div class="container">
+    <div class="container mt-4 mb-4">
         <?php
             $page = isset($_GET['page']) ? $_GET['page'] : "";
             $action = isset($_GET['action']) ? $_GET['action'] : "";
@@ -82,10 +82,14 @@
                     include "tampilan_rulesBase.php";
                 }elseif ($action=="tambah"){
                     include "tambah_rulesBase.php";
+                }elseif ($action=="detail"){
+                    include "detail_rulesBase.php";
                 }elseif ($action=="update"){
-                    include "update_penyakit.php";
+                    include "update_rulesBase.php";
+                }elseif ($action=="delete_gejala"){
+                    include "delete_detail_rulesBase.php";
                 }else{
-                    include "delete_penyakit.php";
+                    include "delete_rulesBase.php";
                 }
             }else{
                 include "NAMA_HALAMAN";

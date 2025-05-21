@@ -9,7 +9,6 @@ if(isset($_POST['simpan'])){
             FROM rules_base INNER JOIN penyakit ON rules_base.id_penyakit = penyakit.id_penyakit
             WHERE nama_penyakit='$nama_penyakit'";
     $result = $conn->query($sql);
-
     if ($result->num_rows > 0) {
         ?>
             <div class="alert alert-danger alert-dismissible fade show">

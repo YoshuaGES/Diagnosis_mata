@@ -28,18 +28,15 @@
                 <td><?php echo $row['keterangan']; ?></td>
                 <td align="center">
                     <a class="btn btn-primary" href="?page=rulesBase&action=detail&id=<?php echo $row['id_rules']; ?>">
-                        <i class="far fa-list"></i>
-
+                        <i class="fas fa-list"></i>
                     </a>
                     <!-- ini buat detail -->
                     <a class="btn btn-warning" href="?page=rulesBase&action=update&id=<?php echo $row['id_rules']; ?>">
                         <i class="far fa-edit"></i>
-
                     </a>
                     <!-- ini buat edit -->
                     <a onclick="return confirm('Yakin menghapus data ini ?')" class="btn btn-danger" href="?page=rulesBase&action=hapus&id=<?php echo $row['id_rules']; ?>">
                         <i class="fas fa-trash"></i>
-
                     </a>
                     <!-- ini buat hapus -->
                 </td>
