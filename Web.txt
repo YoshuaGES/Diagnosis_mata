@@ -1,0 +1,7 @@
+Langkah-langkah membuat Websitenya
+1. Buat Database
+2. Instal Bootstrap + buat Index
+3. Koneksi Database + buat tampilan Gejala + CRUD Gejala
+4. Buat Halaman Penyakit
+
+// baru samapi tambah_penyakit.php
