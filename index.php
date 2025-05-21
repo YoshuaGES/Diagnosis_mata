@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="assets/css/all.css">
     <!-- FontAwesome css -->
 
+    <link rel="stylesheet" href="assets/css/bootstrap-chosen.css">
+    <!-- chosen css buat checkbox -->
 </head>
 <body>
 
@@ -36,7 +38,7 @@
             <a class="nav-link" href="?page=penyakit">Penyakit</a>
             </li>
             <li class="nav-item active">
-            <a class="nav-link" href="#">Rules Base</a>
+            <a class="nav-link" href="?page=rulesBase">Rules Base</a>
             </li>
             <li class="nav-item active">
             <a class="nav-link" href="#">Konsultasi</a>
@@ -71,9 +73,19 @@
                 }elseif ($action=="tambah"){
                     include "tambah_penyakit.php";
                 }elseif ($action=="update"){
-                    include "update_gejala.php";
+                    include "update_penyakit.php";
                 }else{
-                    include "delete_gejala.php";
+                    include "delete_penyakit.php";
+                }
+            }elseif ($page=="rulesBase"){
+                if ($action==""){
+                    include "tampilan_rulesBase.php";
+                }elseif ($action=="tambah"){
+                    include "tambah_rulesBase.php";
+                }elseif ($action=="update"){
+                    include "update_penyakit.php";
+                }else{
+                    include "delete_penyakit.php";
                 }
             }else{
                 include "NAMA_HALAMAN";
@@ -99,6 +111,15 @@
 
     <!-- FontAwesome js -->
     <script src="assets/js/all.js"></script>
+    
+    <!-- Chosen -->
+    <script src="assets/js/chosen.jquery.min.js"></script>
+    <!-- Function Chosen -->
+    <script>
+      $(function() {
+        $('.chosen').chosen();
+      });
+    </script>
 
 </body>
 </html>

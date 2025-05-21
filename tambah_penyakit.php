@@ -3,13 +3,15 @@
 if(isset($_POST['simpan'])){
 
     // ambil data dari form
-    $nama_gejala=$_POST['nama_gejala'];
+    $nama_penyakit=$_POST['nama_penyakit'];
+    $keterangan=$_POST['keterangan'];
+    $solusi=$_POST['solusi'];
 	
    
 	//proses simpan
-        $sql = "INSERT INTO gejala VALUES (Null,'$nama_gejala')";
+        $sql = "INSERT INTO penyakit VALUES (Null, '$nama_penyakit', '$keterangan', '$solusi')";
         if ($conn->query($sql) === TRUE) {
-            header("Location:?page=gejala");
+            header("Location:?page=penyakit");
         }
     }
 ?>
