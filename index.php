@@ -41,7 +41,7 @@
             <a class="nav-link" href="?page=rulesBase">Rules Base</a>
             </li>
             <li class="nav-item active">
-            <a class="nav-link" href="#">Konsultasi</a>
+            <a class="nav-link" href="?page=konsultasi">Konsultasi</a>
             </li>
             <li class="nav-item active">
             <a class="nav-link" href="#">Logout</a>
@@ -90,6 +90,16 @@
                     include "delete_detail_rulesBase.php";
                 }else{
                     include "delete_rulesBase.php";
+                }
+            }elseif ($page=="konsultasi"){
+                if ($action==""){
+                    include "tampilan_konsultasi.php";
+                }elseif ($action=="tambah"){
+                    include "tambah_penyakit.php";
+                }elseif ($action=="update"){
+                    include "update_penyakit.php";
+                }else{
+                    include "delete_penyakit.php";
                 }
             }else{
                 include "NAMA_HALAMAN";

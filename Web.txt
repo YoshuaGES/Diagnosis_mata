@@ -4,3 +4,7 @@ Langkah-langkah membuat Websitenya
 3. Koneksi Database + buat tampilan Gejala + CRUD Gejala
 4. Buat Halaman Penyakit + CRUD Penyakit
 5. Halaman Rules Base (Tampilan + Tambah data + simpan + update + hapus)
+6. Halaman konsultasi
+
+Proses Alur forward-chaining
+A. dari gejala yang dipilih kemudian dicek ke basis aturan

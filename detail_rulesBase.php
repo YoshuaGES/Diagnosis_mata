@@ -60,7 +60,7 @@ $row = $result->fetch_assoc();
                             </tbody>
                         </table>
 
-                        <input class="btn btn-primary" type="submit" name="update" value="Update">
+                        <!-- <input class="btn btn-primary" type="submit" name="update" value="Update"> -->
                         <a class="btn btn-danger" href="?page=rulesBase">Kembali</a>
                     </div>
                 </div>

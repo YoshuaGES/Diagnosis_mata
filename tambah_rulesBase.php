@@ -16,6 +16,7 @@ if(isset($_POST['simpan'])){
                 <strong>Data rules base penyakit sudah ada</strong>
             </div>
         <?php
+        
     }else{
 
         // mengambil Id data penyakit buat disimpan ke rules_base
@@ -118,20 +119,20 @@ if(isset($_POST['simpan'])){
     function validasiForm(){
 
         // Validasi nama penyakit
-        const namaPenyakit = document.forms["Form"]["nama_penyakit"].value;
+        let nama_penyakit = document.forms["Form"]["nama_penyakit"].value;
 
-        if(namaPenyakit=="")
+        if(nama_penyakit=="")
         {
             alert("Pilih nama penyakit");
             return false;
         }
         
         // Validasi gejala yang belum dipilih
-        const checkbox = document.getElementsByName('<?php echo 'id_gejala[]';?>');
+        let checkbox = document.getElementsByName('<?php echo 'id_gejala[]'; ?>');
 
-        const check = false;
+        let check = false;
 
-        for(const i=0;i<check.length;i++){
+        for(let i=0;i<checkbox.length;i++){
             if(checkbox[i].checked){
                 check = true;
                 break;
