@@ -5,8 +5,8 @@ $id_rules=$_GET['id'];
 
 $sql = "SELECT rules_base.id_rules, rules_base.id_penyakit,
                penyakit.nama_penyakit, penyakit.keterangan
-        FROM rules_base INNER JOIN penyakit ON rules_base.id_penyakit = penyakit.id_penyakit
-        WHERE rules_base.id_rules='$id_rules'";
+        FROM   rules_base INNER JOIN penyakit ON rules_base.id_penyakit = penyakit.id_penyakit
+        WHERE  rules_base.id_rules='$id_rules'";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 

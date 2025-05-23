@@ -1,5 +1,5 @@
 <div class="card">
-  <div class="card-header bg-primary text-white border-dark"><strong>Data Penyakit</strong></div>
+  <div class="card-header bg-primary text-white border-dark"><strong>Daftar Penyakit Mata</strong></div>
   <div class="card-body">
 <a class="btn btn-primary mb-2" href="?page=penyakit&action=tambah">Tambah</a>
 <table class="table table-bordered" id="myTable">

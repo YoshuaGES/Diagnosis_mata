@@ -1,4 +1,5 @@
 <?php
+session_start();
 //konekin database
     include "config.php";
 ?>
@@ -28,26 +29,35 @@
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <ul class="navbar-nav">
             <li class="nav-item active">
-            <a class="nav-link" href="index.php">Home</a>
-            </li>
-            <!-- buat admin -->
-            <li class="nav-item active">
-            <a class="nav-link" href="?page=gejala">Gejala</a>
+                <a class="nav-link" href="index.php">Home</a>
             </li>
             <li class="nav-item active">
-            <a class="nav-link" href="?page=penyakit">Penyakit</a>
+                <a class="nav-link" href="?page=users">Users</a>
             </li>
             <li class="nav-item active">
-            <a class="nav-link" href="?page=rulesBase">Rules Base</a>
+                <a class="nav-link" href="?page=gejala">Gejala</a>
             </li>
             <li class="nav-item active">
-            <a class="nav-link" href="?page=konsultasi">Konsultasi</a>
+                <a class="nav-link" href="?page=penyakit">Penyakit</a>
             </li>
             <li class="nav-item active">
-            <a class="nav-link" href="#">Logout</a>
+                <a class="nav-link" href="?page=rulesBase">Rules Base</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="?page=konsultasi">Konsultasi</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="?page=logout">Logout</a>
             </li>
         </ul>
     </nav>
+
+    <!-- cek status login -->
+    <?php 
+    if($_SESSION['status']!="y"){
+        header("Location:login.php");
+    }
+    ?>
 
     <!-- ini buat menu -->
     <div class="container mt-4 mb-4">
@@ -94,15 +104,21 @@
             }elseif ($page=="konsultasi"){
                 if ($action==""){
                     include "tampilan_konsultasi.php";
-                }elseif ($action=="tambah"){
-                    include "tambah_penyakit.php";
-                }elseif ($action=="update"){
-                    include "update_penyakit.php";
                 }else{
-                    include "delete_penyakit.php";
+                    include "hasil_konsultasi.php";
                 }
-            }else{
-                include "NAMA_HALAMAN";
+            }elseif ($page=="users"){
+                if ($action==""){
+                    include "tampilan_users.php";
+                }elseif ($action=="tambah"){
+                    include "tambah_users.php";
+                }elseif ($action=="update"){
+                    include "update_users.php";
+                }else{
+                    include "delete_users.php";
+                }
+            }else {
+                include "logout.php";
             }
         ?>
     </div>

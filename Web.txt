@@ -7,4 +7,11 @@ Langkah-langkah membuat Websitenya
 6. Halaman konsultasi
 
 Proses Alur forward-chaining
-A. dari gejala yang dipilih kemudian dicek ke basis aturan
+A. dari gejala yang dipilih kemudian dicek ke rules base
+B. Pilih gejala di halaman konsultasi
+
+7. Halaman pembuatan users (pengguna)
+   pasien, admin, dokter
+   pasien = konsultasi
+
+8. Halaman Login, hak akses
