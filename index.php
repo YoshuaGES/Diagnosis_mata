@@ -31,21 +31,52 @@ session_start();
             <li class="nav-item active">
                 <a class="nav-link" href="index.php">Home</a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="?page=users">Users</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="?page=gejala">Gejala</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="?page=penyakit">Penyakit</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="?page=rulesBase">Rules Base</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="?page=konsultasi">Konsultasi</a>
-            </li>
+
+        <!-- setting akses -->
+            <?php
+                if($_SESSION['role']=="Dokter"){
+                
+            ?>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="?page=users">Users</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="?page=rulesBase">Rules Base</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="?page=konsultasi_dokter">Konsultasi</a>
+                </li>
+
+            <?php
+                }elseif($_SESSION['role']=="Admin") {
+            ?>
+            
+                <li class="nav-item active">
+                    <a class="nav-link" href="?page=gejala">Gejala</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="?page=penyakit">Penyakit</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="?page=rulesBase">Rules Base</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="?page=konsultasi_dokter">Konsultasi</a>
+                </li>
+
+            <?php
+                }else{
+            ?>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="?page=konsultasi">Konsultasi</a>
+                </li>
+
+            <?php
+                }
+            ?>
+
             <li class="nav-item active">
                 <a class="nav-link" href="?page=logout">Logout</a>
             </li>
@@ -106,6 +137,12 @@ session_start();
                     include "tampilan_konsultasi.php";
                 }else{
                     include "hasil_konsultasi.php";
+                }
+            }elseif ($page=="konsultasi_dokter"){
+                if ($action==""){
+                    include "tampilan_konsultasi_dokter.php";
+                }else{
+                    include "hasil_konsultasi_dokter.php";
                 }
             }elseif ($page=="users"){
                 if ($action==""){

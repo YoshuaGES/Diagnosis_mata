@@ -36,7 +36,7 @@ if(isset($_POST['simpan'])){
                         <input type="text" class="form-control" name="solusi" maxlength="200" required>
                     </div>
                 <input class="btn btn-primary" type="submit" name="simpan" value="Simpan">
-                <a class="btn btn-danger" href="?page=gejala">Batal</a>
+                <a class="btn btn-danger" href="?page=penyakit">Batal</a>
                 </div>
             </div>
         </form>

@@ -15,3 +15,4 @@ B. Pilih gejala di halaman konsultasi
    pasien = konsultasi
 
 8. Halaman Login, hak akses
+9. konsultasi buat admin dan dokter (role)
