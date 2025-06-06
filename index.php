@@ -22,6 +22,18 @@ session_start();
 
     <link rel="stylesheet" href="assets/css/bootstrap-chosen.css">
     <!-- chosen css buat checkbox -->
+
+    <style>
+    .navbar-nav .nav-link:hover {
+        color:rgb(229, 255, 0) !important; /* biru cerah */
+        transition: color 0.3s ease;
+    }
+
+    .navbar-nav .nav-item.active .nav-link {
+        color: #ffffff;
+    }
+</style>
+
 </head>
 <body>
 
