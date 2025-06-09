@@ -25,7 +25,7 @@ session_start();
 
     <style>
     .navbar-nav .nav-link:hover {
-        color:rgb(229, 255, 0) !important; /* biru cerah */
+        color:rgb(229, 255, 0) !important; /* kuning telor */
         transition: color 0.3s ease;
     }
 
