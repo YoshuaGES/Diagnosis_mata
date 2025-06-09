@@ -102,7 +102,6 @@
                 <img src="/Diagnosis_mata/assets/img/eyes-removebg-preview.png" alt="Ilustrasi Mata">
             </div>
         </div>
-
         <footer class="footer">
             <div class="footer-container">
                 <p>&copy; 2025 Sistem Pakar Diagnosis Penyakit Mata. All rights reserved.</p>
