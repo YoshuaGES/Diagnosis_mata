@@ -13,14 +13,12 @@
         }
 
         .wrapper {
-            flex: 1;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
 
         .welcome {
-            flex: 1;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -55,6 +53,14 @@
             flex-wrap: wrap;
         }
 
+        .ada {
+            margin:20px;
+            border-radius:10px;
+            padding:20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
         .gambar img {
             width: 120px;
             box-shadow: 0 0 10px rgba(1, 2, 2, 0.1);
@@ -71,11 +77,9 @@
         .footer {
             background-color: rgba(0, 0, 0, 0.85);
             color: white;
-            padding: 20px 10px;
+            padding: 20px;
             text-align: center;
             font-size: 14px;
-            margin-top: auto;
-            width: 100%;
         }
 
         @media (max-width: 768px) {
@@ -101,6 +105,17 @@
                 <img src="/Diagnosis_mata/assets/img/eyes-removebg-preview.png" alt="Ilustrasi Mata">
                 <img src="/Diagnosis_mata/assets/img/eyes-removebg-preview.png" alt="Ilustrasi Mata">
             </div>
+        </div>
+        <div class="ada">
+            <p>Mata adalah salah satu indera paling vital dalam kehidupan manusia.
+               Dengan mata, kita bisa melihat keindahan dunia, membaca, belajar, hingga berinteraksi dengan lingkungan sekitar.
+               Namun, tidak semua orang menyadari pentingnya menjaga kesehatan mata.
+               Banyak orang baru menyadari fungsinya ketika mata mulai mengalami gangguan atau penyakit.
+            </p>
+            <p>Penyakit mata dapat menyerang siapa saja, dari anak-anak hingga orang dewasa.
+               Beberapa penyakit mata umum seperti rabun jauh (miopia), rabun dekat (hipermetropi), dan astigmatisme kerap dianggap sepele, padahal jika dibiarkan dapat memengaruhi kualitas hidup.
+               Sementara itu, ada pula penyakit mata yang lebih serius seperti katarak, glaukoma, dan degenerasi makula yang dapat menyebabkan kebutaan permanen jika tidak ditangani dengan cepat dan tepat.
+            </p>
         </div>
         <footer class="footer">
             <div class="footer-container">
