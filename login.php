@@ -15,19 +15,28 @@ if(isset($_POST["submit"])){
     $row = $result->fetch_assoc();
     if ($result->num_rows > 0) {
         
-        //jika login berhasil
-        //membuat session
-        $_SESSION['username'] = $row["username"];
-        $_SESSION['role'] = $row["role"];
-        $_SESSION['status'] = "y";
+    //jika login berhasil
+    //membuat session
+    $_SESSION['username'] = $row["username"];
+    $_SESSION['role'] = $row["role"];
+    $_SESSION['status'] = "y";
     
-       header("Location:index.php");
+    header("Location:index.php");
 
     } else {
         //bila login gagal
         header("Location:?msg=n");
     }
 }
+
+    if (isset($_POST["guest"])) {
+        $_SESSION['username'] = "Guest";
+        $_SESSION['role'] = "User";
+        $_SESSION['status'] = "y";
+        header("Location: index.php");
+        exit;
+    }
+
 $conn->close();
 ?>
 
@@ -46,7 +55,7 @@ $conn->close();
 <body>
 
 <!-- validasi login gagal -->
- <?php 
+<?php 
 if(isset($_GET['msg'])){
     if($_GET['msg'] == "n"){
     ?>
@@ -69,7 +78,7 @@ if(isset($_GET['msg'])){
                     </div>
                     <div class="card-body border">
                         <div class="form-group">
-                            <label for="">User Name</label>
+                            <label for="">Username</label>
                             <input type="text" class="form-control" name="username" autocomplete="off" required>
                         </div>
                         <div class="form-group">
@@ -79,7 +88,12 @@ if(isset($_GET['msg'])){
                         <input type="submit" class="btn btn-primary" name="submit" value="Login">
                     </div>
                 </div>
-            </form>
+                </form>
+
+                <!-- Form khusus untuk User biasa -->
+                <form method="POST" style="margin: 20px;">
+                <button type="submit" class="btn btn-success w-100" name="guest">Masuk sebagai User</button>
+                </form>
         </div>
     </div>
 </div>
