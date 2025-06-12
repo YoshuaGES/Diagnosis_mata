@@ -17,9 +17,13 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] != "y") {
   <title>Diagnosis Penyakit Mata</title>
 
   <link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
+  <!-- file utama CSS dari Bootstrap digunakan untuk membangun layout web responsif dan komponen siap pakai seperti navbar, form, tombol, dll. -->
   <link rel="stylesheet" href="assets/css/datatables.min.css"/>
+  <!-- pustaka jQuery yang digunakan untuk menampilkan tabel data interaktif: pencarian, pagination, sort, dll. -->
   <link rel="stylesheet" href="assets/css/all.css"/>
+  <!-- pustaka ikon berbasis font -->
   <link rel="stylesheet" href="assets/css/bootstrap-chosen.css"/>
+  <!-- pustaka jQuery yang meningkatkan tampilan dan interaksi <select> (dropdown), seperti pencarian dalam dropdown. -->
 
   <style>
     body {
@@ -51,6 +55,7 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] != "y") {
   <!-- Navbar -->
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <ul class="navbar-nav">
+        <!-- Pengecekan buat 3 role -->
       <?php if ($_SESSION['role'] == "Admin") { ?>
         <li class="nav-item active"><a class="nav-link" href="index.php">Home</a></li>
         <li class="nav-item active"><a class="nav-link" href="?page=gejala">Gejala</a></li>
@@ -76,7 +81,9 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] != "y") {
   <div class="container mt-4 mb-4">
     <?php
     $page = $_GET['page'] ?? "";
+    // Mengambil nilai dari parameter URL page.
     $action = $_GET['action'] ?? "";
+    // Digunakan untuk mengetahui aksi spesifik apa yang akan dijalankan pada halaman tersebut (misalnya tambah, update, delete, dsb).
 
     if ($page == "") {
       if ($_SESSION['role'] == "Admin") {
