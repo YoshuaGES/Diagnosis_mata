@@ -141,8 +141,10 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] != "y") {
     } elseif ($page == "konsultasi_dokter") {
       if ($action == "") {
         include "tampilan_konsultasi_dokter.php";
-      } else {
+      } elseif ($action == "detail") {
         include "hasil_konsultasi_dokter.php";
+      } else {
+        include "delete_konsultasi.php";
       }
 
     } elseif ($page == "users") {

@@ -6,8 +6,8 @@
       <tr>
         <th width="20px">No</th>
         <th width="400px">Tanggal Konsultasi</th>
-        <th width="400px">Nama Pasien</th>
-        <th width="80px"></th>
+        <th width="300px">Nama Pasien</th>
+        <th width="150px"></th>
       </tr>
     </thead>
     <tbody>
@@ -26,6 +26,10 @@
                         <i class="fas fa-list"></i>
                     </a>
                     <!-- ini buat detail -->
+                    <a onclick="return confirm('Yakin menghapus data ini ?')" class="btn btn-danger" href="?page=konsultasi_dokter&action=hapus&id=<?php echo $row['id_konsultasi']; ?>">
+                        <i class="fas fa-trash"></i>
+                    </a>
+                    <!-- ini buat hapus -->
                 </td>
             </tr>
         <?php

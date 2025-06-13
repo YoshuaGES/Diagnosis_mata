@@ -5,10 +5,10 @@
 <table class="table table-bordered" id="myTable">
     <thead>
       <tr>
-        <th width="20px">No</th>
-        <th width="120px">Nama Penyakit</th>
-        <th width="500px">Keterangan Penyakit</th>
-        <th width="200px">Solusi</th>
+        <th width="10px">No</th>
+        <th width="130px">Nama Penyakit</th>
+        <th width="400px">Keterangan Penyakit</th>
+        <th width="300px">Solusi</th>
         <th width="100px"></th>
       </tr>
     </thead>

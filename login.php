@@ -13,19 +13,21 @@ if(isset($_POST["submit"])){
     $sql = "SELECT * FROM users WHERE username='$username' AND password ='$password'";
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
+
     if ($result->num_rows > 0) {
-        
     //jika login berhasil
     //membuat session
     $_SESSION['username'] = $row["username"];
     $_SESSION['role'] = $row["role"];
     $_SESSION['status'] = "y";
-    
     header("Location:index.php");
+    exit;
 
     } else {
-        //bila login gagal
-        header("Location:?msg=n");
+        // //bila login gagal
+        $_SESSION['login_error'] = true;
+        header("Location:login.php");
+        exit;
     }
 }
 
@@ -56,15 +58,12 @@ $conn->close();
 
 <!-- validasi login gagal -->
 <?php 
-if(isset($_GET['msg'])){
-    if($_GET['msg'] == "n"){
-    ?>
-    <div class="alert alert-danger" align="center">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <strong>Login Gagal</strong>
-    </div>
-    <?php
-    }       
+if (isset($_SESSION['login_error'])) {
+    echo '<div class="alert alert-danger text-center">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Login Gagal</strong>
+          </div>';
+    unset($_SESSION['login_error']); // hapus supaya tidak muncul saat refresh
 }
 ?>
 
