@@ -65,23 +65,48 @@ $row = $result->fetch_assoc();
                             <tbody>
                                 <?php
                                     $nomor=1;
-                                    $sql = "SELECT detail_penyakit.id_konsultasi, detail_penyakit.id_penyakit, penyakit.nama_penyakit,
-                                                   penyakit.solusi, detail_penyakit.presentase
-                                            FROM detail_penyakit INNER JOIN penyakit
-                                            ON detail_penyakit.id_penyakit=penyakit.id_penyakit WHERE id_konsultasi='$id_konsultasi'
-                                            ORDER BY presentase DESC";
+                                    $sql = "SELECT * FROM penyakit";
                                     $result = $conn->query($sql);
-                                    while($row = $result->fetch_assoc()) {
-                                ?>
-                                    <tr>
-                                        <td><?php echo $nomor++; ?></td>
-                                        <td><?php echo $row['nama_penyakit']; ?></td>
-                                        <td align="center"><?php echo $row['presentase'] . "%"; ?></td>
-                                        <td><?php echo $row['solusi']; ?></td>
-                                    </tr>
-                                <?php
+                                    while ($row = $result->fetch_assoc()) {
+                                        $id_penyakit = $row['id_penyakit'];
+                                        $nama_penyakit = $row['nama_penyakit'];
+                                        $solusi = $row['solusi'];
+
+                                        // Ambil total gejala dari rules base
+                                        $sql2 = "SELECT COUNT(*) as total FROM rules_base rb
+                                                INNER JOIN rules_base_detail rbd ON rb.id_rules = rbd.id_rules
+                                                WHERE rb.id_penyakit = '$id_penyakit'";
+                                        $result2 = $conn->query($sql2);
+                                        $total_gejala = $result2->fetch_assoc()['total'];
+
+                                        // Ambil jumlah gejala yang cocok dengan konsultasi
+                                        $sql3 = "SELECT COUNT(*) as cocok FROM rules_base rb
+                                                INNER JOIN rules_base_detail rbd ON rb.id_rules = rbd.id_rules
+                                                WHERE rb.id_penyakit = '$id_penyakit'
+                                                AND rbd.id_gejala IN (
+                                                    SELECT id_gejala FROM detail_konsultasi WHERE id_konsultasi = '$id_konsultasi'
+                                                )";
+                                        $result3 = $conn->query($sql3);
+                                        $cocok = $result3->fetch_assoc()['cocok'];
+
+                                        // Hitung presentase
+                                        if ($total_gejala > 0) {
+                                            $presentase = round(($cocok / $total_gejala) * 100);
+                                        } else {
+                                            $presentase = 0;
+                                        }
+
+                                        // Tampilkan hanya jika ada kecocokan
+                                        if ($cocok > 0) {
+                                            echo "<tr>
+                                                    <td>" . $nomor . "</td>
+                                                    <td>{$nama_penyakit}</td>
+                                                    <td align='center'>{$presentase}%</td>
+                                                    <td>{$solusi}</td>
+                                                  </tr>";
+                                                  $nomor++;
+                                        }
                                     }
-                                    $conn->close();
                                 ?>
                             </tbody>
                         </table>
