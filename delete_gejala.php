@@ -15,12 +15,17 @@ $conn->query("DELETE FROM rules_base_detail WHERE id_gejala='$id_gejala'");
 $conn->query("DELETE FROM detail_konsultasi WHERE id_gejala='$id_gejala'");
 
 // Hapus dari tabel gejala
+// $sql = "DELETE FROM gejala WHERE id_gejala='$id_gejala'";
+// $conn->query($sql);
 $sql = "DELETE FROM gejala WHERE id_gejala='$id_gejala'";
+
 
 // Update ulang detail_penyakit setelah penghapusan gejala
 // Ambil semua id_konsultasi aktif
+//SELECT DISTINCT mengambil data yang unik (tidak duplikat) dari suatu kolom atau kombinasi kolom di tabel.
 $konsultasi = $conn->query("SELECT DISTINCT id_konsultasi FROM detail_konsultasi");
 
+// Fungsi untuk mengambil satu baris hasil query dalam bentuk associative array (misalnya: $row['id_konsultasi'])
 while ($row = $konsultasi->fetch_assoc()) {
     $id_konsultasi = $row['id_konsultasi'];
 
